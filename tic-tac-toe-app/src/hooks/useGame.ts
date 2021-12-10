@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Player } from '../types/Player';
 import { calculateWinner } from '../lib/calculateWinner'
+import { calculateNextMove } from '../lib/calculateNextMove'
 
 type moveHistory = {
   squares: Player[]
@@ -17,9 +18,8 @@ export const useGame = () => {
 
   useEffect(() => {
     if (isNextComputer) {
-      // TODO: ランダムだと同じ箇所にコンピューターが打とうとするので直す。
       // TODO: 即打たれると違和感があるのでので1秒くらい待ちたい。
-      handleNextMove(Math.floor(Math.random() * 9))
+      handleNextMove(calculateNextMove(currentMove.squares))
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[isNextComputer]);
