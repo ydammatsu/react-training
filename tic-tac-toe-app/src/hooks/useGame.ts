@@ -18,8 +18,12 @@ export const useGame = () => {
 
   useEffect(() => {
     if (isNextComputer) {
-      // TODO: 即打たれると違和感があるのでので1秒くらい待ちたい。
-      handleNextMove(calculateNextMove(currentMove.squares))
+      const interval = setInterval(() => {
+        handleNextMove(calculateNextMove(currentMove.squares));
+      }, 500);
+      return () => {
+        clearInterval(interval)
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[isNextComputer]);
