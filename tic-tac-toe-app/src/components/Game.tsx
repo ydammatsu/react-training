@@ -4,7 +4,16 @@ import { First }  from '../components/First'
 import { useGame } from '../hooks/useGame'
 
 export const Game: React.FC = () => {
-  const { player, xIsNext, moveHistory, currentMove, winner, setPlayer, handleNextMove, jumpTo } = useGame();
+  const {
+    player,
+    xIsNext,
+    moveHistory,
+    currentMove,
+    winner,
+    setPlayer,
+    handleNextMove,
+    jumpTo
+  } = useGame();
 
   return (
     <div className="game">
