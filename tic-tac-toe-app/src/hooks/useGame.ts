@@ -18,6 +18,7 @@ export const useGame = () => {
 
   useEffect(() => {
     if (isNextComputer) {
+      // 即打たれると違和感があるので0.5秒待つ
       const interval = setInterval(() => {
         handleNextMove(calculateNextMove(currentMove.squares));
       }, 500);
