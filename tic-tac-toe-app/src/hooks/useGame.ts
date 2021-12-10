@@ -14,20 +14,17 @@ export const useGame = () => {
   const [moveHistory , setMoveHistory] = useState<moveHistory>([{squares: Array(9).fill(null) }]);
   const currentMove                    = moveHistory[stepNumber];
   const winner                         = calculateWinner(moveHistory[stepNumber].squares);
-  const isNextComputer                 = (player === 'O' && xIsNext) || (player === 'X' && !xIsNext)
+  const nextIsComputer                 = (player === 'O' && xIsNext) || (player === 'X' && !xIsNext)
 
   useEffect(() => {
-    if (isNextComputer) {
+    if (nextIsComputer) {
       // 即打たれると違和感があるので0.5秒待つ
-      const interval = setInterval(() => {
+      setTimeout(() => {
         handleNextMove(calculateNextMove(currentMove.squares));
       }, 500);
-      return () => {
-        clearInterval(interval)
-      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[isNextComputer]);
+  },[nextIsComputer]);
 
   const handleNextMove = (i: number): void => {
     if (!player) {return}
