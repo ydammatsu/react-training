@@ -18,7 +18,7 @@ export const useGame = () => {
 
   useEffect(() => {
     if (nextIsComputer) {
-      // 即打たれると違和感があるので0.3秒待つ
+      // コンピューターに即打たれると違和感があるので0.3秒待つ
       setTimeout(() => {
         handleNextMove(calculateNextMove(currentMove.squares));
       }, 300);
