@@ -1,6 +1,11 @@
 import { Player } from '../types/Player'
 
-export const calculateNextMove = (board: Player[]): number => {
-  // TODO: ランダムだと同じ箇所にコンピューターが打とうとするので直す。
-  return (Math.floor(Math.random() * 9))
+export const calculateNextMove = (squares: Player[]): number => {
+  const nullSquareIndex: number[] = [];
+  squares.forEach((player, index) => {
+    if (player) { return }
+    nullSquareIndex.push(index);
+  });
+  const nextMove = nullSquareIndex[Math.floor(Math.random() * nullSquareIndex.length)];
+  return (nextMove);
 };

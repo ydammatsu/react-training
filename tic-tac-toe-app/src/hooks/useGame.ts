@@ -18,10 +18,10 @@ export const useGame = () => {
 
   useEffect(() => {
     if (nextIsComputer) {
-      // 即打たれると違和感があるので0.5秒待つ
+      // 即打たれると違和感があるので0.3秒待つ
       setTimeout(() => {
         handleNextMove(calculateNextMove(currentMove.squares));
-      }, 500);
+      }, 300);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[nextIsComputer]);
