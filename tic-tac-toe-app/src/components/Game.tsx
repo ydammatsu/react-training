@@ -1,6 +1,6 @@
 import { Board } from '../components/Board'
 import { History } from '../components/History'
-import { First }  from '../components/First'
+import { Start }  from './Start'
 import { useGame } from '../hooks/useGame'
 
 export const Game: React.FC = () => {
@@ -34,7 +34,7 @@ export const Game: React.FC = () => {
                 jumpTo={jumpTo}
               />
             : 
-              <First
+              <Start
                 setPlayer={setPlayer}
               />
         }

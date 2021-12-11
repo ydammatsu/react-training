@@ -1,11 +1,11 @@
 import React from 'react';
 import { Player } from '../types/Player';
 
-export type FirstProps = {
+export type StartProps = {
   setPlayer: (player: Player) => void;
 };
 
-export const First: React.FC<FirstProps> = ({setPlayer}) => {
+export const Start: React.FC<StartProps> = ({setPlayer}) => {
   return (
     <>
       <div>
