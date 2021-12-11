@@ -27,7 +27,7 @@ export const useGame = () => {
   },[nextIsComputer]);
 
   const handleNextMove = (i: number): void => {
-    if (!player) {return}
+    if (!player || moveHistory.length === 10) {return}
 
     const historySlice = moveHistory.slice(0, stepNumber + 1);
     const current = moveHistory[moveHistory.length - 1];

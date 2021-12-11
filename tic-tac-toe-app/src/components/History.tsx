@@ -14,7 +14,9 @@ export const History: React.FC<HistoryProps> = ({xIsNext, moveHistory, winner, j
   const status =
     winner
       ? 'Winner: ' +  winner
-      : 'Next player: ' + (xIsNext ? 'X' : 'O');
+      : moveHistory.length ===  10
+          ? 'Draw'
+          : 'Next player: ' + (xIsNext ? 'X' : 'O');
 
   const moves = moveHistory.map((_, move) => {
     const desc = move ?
